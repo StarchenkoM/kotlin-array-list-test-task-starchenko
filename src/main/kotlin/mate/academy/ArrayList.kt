@@ -1,11 +1,11 @@
 package mate.academy
 
 class ArrayList<T> : List<T> {
-    override fun add(value: T) {
+    override fun add(value: T?) {
         // implementation
     }
 
-    override fun add(value: T, index: Int) {
+    override fun add(value: T?, index: Int) {
         // implementation
     }
 
