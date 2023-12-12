@@ -14,7 +14,7 @@ class ArrayList<T> : List<T> {
 
 
     private var array: Array<T?> = arrayOfNulls<Any>(defCapacity) as Array<T?>
-    private var size = 0
+    private var size  = 0
     private var cursor = 0
 
 
@@ -28,7 +28,7 @@ class ArrayList<T> : List<T> {
         val multiplicator = if (oldCapacity == size) 1.5 else 1.0
         val newCapacity = (oldCapacity * multiplicator + 1).toInt()
         array = if (oldCapacity > 0 || array !== empty_arrayData) {
-            return Arrays.copyOf(array, newCapacity)
+            return  Arrays.copyOf(array, newCapacity)
         } else {
             return arrayOfNulls<Any>(defCapacity) as Array<T?>
         }
@@ -46,12 +46,13 @@ class ArrayList<T> : List<T> {
 
     override fun add(value: T?) {
         val index = cursor
+
         this.add(value, index)
         cursor = index + 1
     }
 
 
-    override fun add(value: T?, index: Int) {
+    override fun add(value: T?,  index: Int) {
         if (index > size || index < 0) {
             throw ArrayListIndexOutOfBoundsException(errorMsg(index))
         } else {
@@ -66,11 +67,11 @@ class ArrayList<T> : List<T> {
     }
 
 
-    override fun addAll(list: List<T>) {
+    override fun addAll(list: List<T> ) {
         if (!list.isEmpty()) {
-                val tempArray = listToArray(list) as Array<T?>
+                val tempArray = listToArray( list) as Array<T?>
             val newCapacity = size + tempArray.size
-            array = Arrays.copyOf(array, newCapacity)
+            array = Arrays.copyOf( array, newCapacity)
             System.arraycopy(tempArray, 0, array, size, tempArray.size)
             size = newCapacity
         }
